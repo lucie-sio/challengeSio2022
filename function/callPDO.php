@@ -1,10 +1,12 @@
 <?php
 
 // initiation de PDO en fonction de l'utilisateur qui accède aux données de la base de données
-function callPDO(string $role, string $password){
-    $dsn = 'mysql:host=localhost;dbname=challenge_parc_info' ;
+function callPDO(){
+    $user = 'XX';
+    $password ='XX';
+    $dsn = 'mysql:host=localhost;dbname=XX' ;
     try {
-        return new PDO($dsn, $role, $password);
+        return new PDO($dsn, $user, $password);
     } catch(PDOException $e) { 
         return strval($e); 
     }
@@ -12,19 +14,19 @@ function callPDO(string $role, string $password){
 
 // récupération des données pour valider l
 function getLoginPDO(){
-    $pdo = callPDO('login', 'qBmNBCrkLb0ZZbSM');
+    $pdo = callPDO();
     return $pdo;
 }
 
 // envoi des données pour l'inscription d'un étudiant
 function getRegisterPDO(){
-    $pdo = callPDO('student', 'msrSvTrRnJQiLzN8');
+    $pdo = callPDO();
     return $pdo;
 }
 
 // récupération du numéro INE de l'étudiant qui rempli un formulaire, l'ine est la clé primaire des tables des équipements info
 function getINEPDO(string $email){
-    $pdo = callPDO('student', 'msrSvTrRnJQiLzN8');
+    $pdo = callPDO();
 
     $query = $pdo->prepare('SELECT INE_NUMBER FROM student WHERE student.EMAIL = :email');
     $query->execute(array('email' => $email));
@@ -42,7 +44,7 @@ function getDataPDO(string $role, string $email){
     ];
 
     // connexion à la base de données selon le rôle
-    $pdo = callPDO($role, $users[$role]);
+    $pdo = callPDO();
     if($role === 'professor' || $role === 'student') {
 
         // stockage de la requete de récupération des logins de l'utilisateur selon son l'email rentré
@@ -61,7 +63,7 @@ function getDataPDO(string $role, string $email){
 
 function getEquipmentPDO(string $ine, $table){
     // connexion à la base de données selon le rôle
-    $pdo = callPDO('student', 'msrSvTrRnJQiLzN8');
+    $pdo = callPDO();
     // récupération des données pour afficher à l'étudiant
 
     // stockage de la requete de récupération selon l'utilisateur
@@ -74,7 +76,7 @@ function getEquipmentPDO(string $ine, $table){
 
 // compte le nombre d'élèves qui ont un compte (donc une fiche)
 function professorCountCard($classe){
-    $pdo = callPDO('professor', 'ur1SB32TLKtNrxY0');
+    $pdo = callPDO();
 
     $query = $pdo->prepare("SELECT count(chopin_user.EMAIL) FROM chopin_user JOIN student ON chopin_user.EMAIL = student.EMAIL WHERE CLASS=:class");
     $query->execute(array('class' => $classe));
@@ -85,7 +87,7 @@ function professorCountCard($classe){
 
 // renvoi les infos de chaque élève de la classe demandées
 function getClass(string $classe){
-    $pdo = callPDO('professor', 'ur1SB32TLKtNrxY0');
+    $pdo = callPDO();
 
     $query = $pdo->prepare("SELECT FIRSTNAME, LASTNAME, chopin_user.EMAIL, student.INE_NUMBER FROM chopin_user JOIN student ON chopin_user.EMAIL = student.EMAIL WHERE CLASS=:class");
     $query->execute(array('class' => $classe));
@@ -95,7 +97,7 @@ function getClass(string $classe){
 
 // renvoi les information de l'élève selon son numéro INE
 function getStudent(string $ine){
-    $pdo = callPDO('professor', 'ur1SB32TLKtNrxY0');
+    $pdo = callPDO();
 
     $query = $pdo->prepare("SELECT * FROM chopin_user JOIN student ON chopin_user.EMAIL = student.EMAIL WHERE student.INE_NUMBER = :ine");
     $query->execute(array('ine' => $ine));
@@ -105,7 +107,7 @@ function getStudent(string $ine){
 
 // première requête utile au GrandEst
 function grandestQuery1(){
-    $pdo = callPDO('grandest', '7r2pPvYDSWn5rkJe');
+    $pdo = callPDO();
 
     // Combien d'élèves ont un ordinateur GrandEst ?
     $query = $pdo->prepare("
@@ -121,7 +123,7 @@ function grandestQuery1(){
 
 // deuxième requête utile au GrandEst
 function grandestQuery2(){
-    $pdo = callPDO('grandest', '7r2pPvYDSWn5rkJe');
+    $pdo = callPDO();
 
     // Combien d'élèves n'ont pas d'ordinateur portable ?
     $query = $pdo->prepare("

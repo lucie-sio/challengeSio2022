@@ -43,7 +43,7 @@ require_once 'element/header.php';
                     <td><?= $student['FIRSTNAME'] ?></td>
                     <td><?= $student['LASTNAME'] ?></td>
                     <td><?= $student['EMAIL'] ?></td>
-                    <td><a href="./studentCard.php?<?= $student['INE_NUMBER'] ?>"><button class="btn btn-info">Voir la fiche</button></a></td>
+                    <td><a href="./studentCard?<?= $student['INE_NUMBER'] ?>"><button class="btn btn-info">Voir la fiche</button></a></td>
                 </tr>    
             <?php endforeach; ?>
             </tbody>
@@ -56,7 +56,7 @@ require_once 'element/header.php';
 
 <?php else: ?> 
     <!-- Si l'utilisateur essaye d'accéder à une fiche élève avec un n°INE au hasard -->
-    <h2>La <?= key($_GET) ?> classe n'a pas d'élèves enregistrés ou n'existe pas !</h2>
+    <h2>La <?= key($_GET) ?> classe n'a pas d'élèves enregistré ou n'existe pas !</h2>
 <?php endif; ?> 
 
 <div class="col-md-12 mb-5 mt-5 text-center">

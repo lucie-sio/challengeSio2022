@@ -20,15 +20,7 @@ $query2->execute();
 $students = $query2->fetchAll();
 ?>
 
-<div class="col-md-12">
-    <div class="alert alert-success text-center">
-        <h4>
-            L'espace administrateur lycée contient la liste de tous les étudiants du lycée (en classes BTS), ainsi que la fiche de chaque étudiant.
-        </h4>
-    </div>
-</div>
-
-<div class="col-md-12 text-center">
+<div>
     <h3>Bonjour <strong><?= $data[0]['FIRSTNAME'] ?> <?= $data[0]['LASTNAME'] ?></strong>.</h3>
 </div>
  <!-- Style de la table -->
@@ -68,7 +60,7 @@ $students = $query2->fetchAll();
                     <td><?= $student['INE_NUMBER'] ?></td>
                     <td><?= $student['CLASS'] ?></td>
                      <!-- Lien vers la fiche de l'élève en question -->
-                    <td><a href="./studentCard.php?<?= $student['INE_NUMBER'] ?>"><button class="btn btn-info">Voir la fiche</button></a></td>
+                    <td><a href="./studentCard?<?= $student['INE_NUMBER'] ?>"><button class="btn btn-info">Voir la fiche</button></a></td>
                 </tr>    
             <?php endforeach; ?>
             </tbody>

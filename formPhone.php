@@ -98,18 +98,17 @@ if(!empty($aa)){
             <?= $valide ?>
         </div>
     <?php endif; ?>
-
     <!-- Création du formulaire en POO -->
-    
-    <?php
-        echo $form->input('marque', 'text', "Marque du télépone");
-        echo $form->select('optionse', $SEPHONE, "Système d'exploitation"); 
-        echo $form->input('stockage', 'number', "Stockage en Go");
-        echo $form->input('numerotel', 'tel', "exemple : 0601020304");
-        echo $form->select('optionfai', $FAI,'Fournisseur mobile'); 
-        echo $form->submit('button');
-    ?>
-    
+    <form action="#" method="POST">
+        <?php
+            echo $form->input('marque', 'text', "Marque du télépone");
+            echo $form->select('optionse', $SEPHONE, "Système d'exploitation"); 
+            echo $form->input('stockage', 'number', "Stockage en Go");
+            echo $form->input('numerotel', 'tel', "exemple : 0601020304");
+            echo $form->select('optionfai', $FAI,'Fournisseur mobile'); 
+            echo $form->submit('button');
+        ?>
+    </form>
 </div>
 
 <?php 

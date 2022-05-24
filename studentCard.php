@@ -110,13 +110,7 @@ require_once 'element/header.php';
     
     <?php if($_SESSION['role'] === 'professor'): ?>
         <div class="col-md-12 mb-5 mt-5 text-center">
-            <a href="./classe.php?<?= $student[0]['CLASS'] ?>"><button class="btn btn-info">Retour à la classe</button></a>
-        </div>
-    <?php endif; ?>
-
-    <?php if($_SESSION['role'] === 'admin'): ?>
-        <div class="col-md-12 mb-5 mt-5 text-center">
-            <a href="./admin.php?<?= $student[0]['CLASS'] ?>"><button class="btn btn-info">Retour à la liste</button></a>
+            <a href="./classe?<?= $student[0]['CLASS'] ?>"><button class="btn btn-info">Retour à la classe</button></a>
         </div>
     <?php endif; ?>
 

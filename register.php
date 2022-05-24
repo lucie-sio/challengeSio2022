@@ -98,17 +98,6 @@ require_once 'element/header.php';
 
 <div class="container">
     <div class="row">
-
-        <div class="col-md-12">
-            <div class="alert alert-success text-center">
-                <h4>
-                Pour simplifier la visite du site, le formulaire d'enregistrement a été désactivé. 
-                Vous pouvez choisir selon quel rôle visualiser sur le site en retournant sur la <a href="./login.php">page précédente</a>.
-                </h4>
-            
-            </div>
-        </div>
-
         <div class="col-md-6 mt-2">
             <h4>S'enregistrer</h4>
             <!-- Affichage de l'erreur -->
@@ -123,7 +112,7 @@ require_once 'element/header.php';
                 <a href="./login.php">Se connecter</a>
             </div>
             <?php endif; ?>
-            
+            <form action="#" method="POST">
                 <?php
                 echo $form->input('firstname', 'text', 'Prénom');
                 echo $form->input('lastname', 'text', 'Nom');
@@ -135,6 +124,7 @@ require_once 'element/header.php';
                 echo $form->input('verifypassword', 'password', 'Confirmer votre mot de passe');
                 echo $form->submit('button');
                 ?>
+            </form>
         </div>
         <div class="col-md-6 mt-2">
             <h4>Mes informations</h4>

@@ -52,14 +52,14 @@ if(!empty($aa)){
         $form = New Form();
     ?>
     <br>
-    
-    <?php
-        echo $form->input('casque', 'checkbox', "Avez-vous un casque ?");
-        echo $form->input('micro', 'checkbox', "Avez-vous un micro ?");
-        echo $form->input('webcam', 'checkbox', "Avez-vous une webcam ?");
-        echo $form->submit('button');
-    ?>
-    
+    <form action="#" method="POST">
+        <?php
+            echo $form->input('casque', 'checkbox', "Avez-vous un casque ?");
+            echo $form->input('micro', 'checkbox', "Avez-vous un micro ?");
+            echo $form->input('webcam', 'checkbox', "Avez-vous une webcam ?");
+            echo $form->submit('button');
+        ?>
+    </form>
 </div>
 <?php 
 require_once 'element/footer.php';

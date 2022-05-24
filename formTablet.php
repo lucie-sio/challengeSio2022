@@ -76,15 +76,15 @@ if(!empty($aa)){
         $form = New Form();
     ?>
     <br>
-    
-    <?php
-        echo $form->input('marque', 'text', "Marque de la tablette");
-        echo $form->select('optionse', $SEPHONE, "Système d'exploitation"); 
-        echo $form->input('stockage', 'number', "Stockage en Go");
-        echo $form->input('mac', 'text', "exemple : 00:37:6C:E2:EB:62");
-        echo $form->submit('button');
-    ?>
-    
+    <form action="#" method="POST">
+        <?php
+            echo $form->input('marque', 'text', "Marque de la tablette");
+            echo $form->select('optionse', $SEPHONE, "Système d'exploitation"); 
+            echo $form->input('stockage', 'number', "Stockage en Go");
+            echo $form->input('mac', 'text', "exemple : 00:37:6C:E2:EB:62");
+            echo $form->submit('button');
+        ?>
+    </form>
 </div>
 
 <?php 

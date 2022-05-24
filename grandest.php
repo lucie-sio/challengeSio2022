@@ -20,17 +20,7 @@ $tableau = [
 $title= 'Ma page | GrandEst';
 require 'element/header.php';
 ?>   
-
-<div class="col-md-12">
-    <div class="alert alert-success text-center">
-        <h4>
-            Cet espace est destiné à un employé de la région Grand-Est qui chercherait à se renseigner sur le nombre d'étudiants 
-            utilisant un ordinateur portable fournit par la région, ou le nombre potentiel d'étudiants qui ont besoin d'un ordinateur.
-        </h4>
-    </div>
-</div>
-
-<div class="col-md-12 text-center">
+<div>
     <h3>Bonjour <strong><?= $data[0]['FIRSTNAME'] ?> <?= $data[0]['LASTNAME'] ?></strong>.</h3>
 </div>
 <div class="container inline-block">
